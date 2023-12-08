@@ -1,0 +1,15 @@
+.App {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #eee;
+    padding: 20px;
+    display: inline-block;
+}
+
+.main-content {
+    padding: 20px;
+}
