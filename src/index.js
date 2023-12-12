@@ -11,7 +11,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 const router = createBrowserRouter (
   [
     {
-      path: "/JJEFTodoList",
+      path: "/",
       element: <App />,
       errorElement: <ErrorPage />,
       children: [],
