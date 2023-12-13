@@ -1,5 +1,6 @@
 import "../App.css";
 import Sidebar from "./Sidebar";
+import List from "./List";
 
 function App() {
   return (
@@ -8,11 +9,7 @@ function App() {
 
       <div className="main-content">
         <h1 className="page-title">To-do</h1>
-        <div className="entry-add-input">
-          <label>Add task</label>
-          <input type="text" id="new-entry-name" name="new-entry-field"></input>
-        </div>
-        <div className="list-content"></div>
+        <List />
       </div>
     </div>
   );
