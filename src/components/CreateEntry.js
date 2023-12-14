@@ -33,15 +33,12 @@ function CreateEntry() {
             body: JSON.stringify(
                 {
                     text: text,
-                    priority: priority,
-                    list_id: listNum 
+                    priority: Number(priority),
+                    list_id: Number(listNum) 
                 }
             ),
-        }).then(response => response.json())
-            .then(jsonData => {
-                console.log(jsonData);
-                setText("");
-            })
+        }).then(response => console.log(response.status))
+            .then(setText(""))
                 .catch(error => console.error(error));
     }
 
