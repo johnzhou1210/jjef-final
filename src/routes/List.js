@@ -1,47 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addList, addEntry } from "../app/userListsSlice";
+import { setData } from "../app/listSlice";
+import CreateEntry from "../components/CreateEntry";
 
 function List() {
   const dispatch = useDispatch();
+  const currList = useSelector(state => state.list.data);
+  
+  async function updateListSlice() { // updates the data in redux by fetching from the database.
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:3001/getAllEntries", requestOptions)
+      .then(response => response.json())
+      .then(resJson => dispatch(setData(resJson)) )
+      .catch(error => console.log('error', error));
+   }
 
-  const userLists = useSelector((state) => state.userLists.lists);
-  const currListId = useSelector((state) => state.userLists.activeListId);
-  const currList = userLists.find((obj) => obj.id === currListId);
+   useEffect(() => {
+    updateListSlice();
+   }, []);
 
-  if (!currList) {
-    // no lists. Create a list!
-    dispatch(addList());
-  }
-
-  console.log(currList);
-
-  /* Event to handle what happens when user presses enter while adding a task. */
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter" && event.target.value.trim() !== "") {
-      // get the data in the text field
-      const entryText = event.target.value;
-      // add a new entry to the list.
-      dispatch(addEntry({ listId: 0, entry: entryText })); // hello will be replaced with the data of an actual entry.
-      console.log("pressed enter");
-      // clear input field
-      event.target.value = "";
-    }
-  };
+   console.log('currlist:')
+   console.log(currList);
 
   return (
     <>
-      <input
-        className="entry-add-input"
-        placeholder="Add a task here and press enter..."
-        type="text"
-        onKeyUp={handleKeyPress}
-      ></input>
+  
+      <CreateEntry updateListSlice = {updateListSlice} />
 
       <div className="list-content">
-        {currList?.data?.map((elem, indx) => (
+        {currList?.map((elem, indx) => (
           <div key={indx} className="list-entry">
-            {elem}
+            {elem.text}
           </div>
         ))}
       </div>
