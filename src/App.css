@@ -17,10 +17,19 @@
 
 .entry-add-input {
     display: flex;
-    height: 2vw;
-    width: 33vw;
-    margin-bottom: 20px;
-    font-size: large;
+    padding: 5px;
+    margin-block: 10px;
+}
+
+.input-field {
+    display: flex;
+    padding-inline: 20px;
+    height: 4vh;
+    
+}
+
+.input-field .entry-taskname-input {
+    width: 25vw
 }
 
 .list-content {
