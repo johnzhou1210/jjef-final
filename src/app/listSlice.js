@@ -42,6 +42,7 @@ export const listSlice = createSlice({
 
     setActiveListId: (state, action) => { // payload expects an integer for the id
       state.activeListId = action.payload;
+      state.newEntryTargetListId = state.activeListId;
       console.log("active list id set to "+ action.payload)
     },
 
