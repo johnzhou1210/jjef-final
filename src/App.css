@@ -46,7 +46,31 @@
 
 .list-entry {
     background-color: bisque;
-    height: 32px;
+    height: 48px;
     margin-bottom: 5px;
     padding: 5px;
+    display: flex;
+}
+
+.list-entry .entry-text {
+    display: inline-block;
+    margin-left: 10px;
+    font-size:x-large;
+    
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.checkbox {
+    font-size: x-large;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+.large-notice {
+    padding: 2%;
+    font-size: xx-large;
+    width: 80vw;
 }
