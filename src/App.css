@@ -32,6 +32,11 @@
     width: 25vw
 }
 
+.input-label {
+    font-size: large;
+    margin-top: 5px;
+}
+
 .list-content {
     background-color: antiquewhite;
     width: 85vw;
