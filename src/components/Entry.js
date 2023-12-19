@@ -18,6 +18,8 @@ function Entry({
 
   const update_endpoint = "http://localhost:3001/updateEntry/";
 
+  const delete_endpoint = "http://localhost:3001/deleteEntry/";
+
   function updateEntryComplete() {
     fetch(update_endpoint + currentEntryId, {
       method: "PUT",
@@ -63,6 +65,14 @@ function Entry({
     }
   }
 
+  function deleteEntry() {
+    fetch(delete_endpoint + currentEntryId, {
+      method: "DELETE",
+    })
+      .then((response) => console.log("Deleted entry: " + response.status))
+      .catch((error) => console.error(error));
+  }
+
   useEffect(() => {
     if (Number.isInteger(list_id)) {
       updateListSlice();
@@ -88,6 +98,7 @@ function Entry({
             {edit ? <input value={entryText} onChange={modifyEntryText}></input>: <p>{entryText}</p>}
           </div>
           <button onClick={() => editEntry()}>{edit ? "complete edit" : "edit"}</button>
+          <button onClick={() => deleteEntry()}>delete</button>
         </>
       )}
     </div>
