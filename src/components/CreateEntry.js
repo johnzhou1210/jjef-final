@@ -4,7 +4,7 @@ import BoredTodo from "./BoredTodo";
 function CreateEntry({ updateListSlice }) {
   const [text, setText] = useState("");
   const [priority, setPriority] = useState(0);
-  const [listNum, setListNum] = useState(0);
+  const [listNum, setListNum] = useState(1);
 
   const endpoint = "http://localhost:3001/createEntry";
 
