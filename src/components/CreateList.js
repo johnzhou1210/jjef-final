@@ -23,7 +23,7 @@ function CreateList({ updateMyLists, updateListSlice }) {
     updateMyLists();
 
     // switch current list to this list
-    // dispatch(setActiveListId(userLists.length + 1));
+    // dispatch(setActiveListId(userLists.length));
   }
 
 

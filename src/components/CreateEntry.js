@@ -8,6 +8,7 @@ function CreateEntry({ updateListSlice }) {
   const [text, setText] = useState("");
   const [priority, setPriority] = useState(0);
   // const [listNum, setListNum] = useState(1);
+  const currActiveListId = useSelector((state) => state.list.currActiveListId);
 
   const listNum = useSelector((state) => state.list.newEntryTargetListId);
 
@@ -62,7 +63,6 @@ function CreateEntry({ updateListSlice }) {
 
   useEffect(() => {
     updateListSlice();
-    
   }, []);
 
   return (

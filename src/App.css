@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-    width: 200px;
+    width: 10vw;
     height: 100vh;
     background-color: #eee;
     padding: 20px;
@@ -16,6 +16,14 @@
     width: 10vw;
     height: 10vh;
     font-size: xx-large;
+}
+
+.delete-list-button {
+    position: absolute;
+    margin-left: 6vw;
+    font-size: large;
+    width: 2vw;
+    height: 5vh;
 }
 
 .main-content {
@@ -62,7 +70,7 @@
 .list-entry .entry-text {
     display: inline-block;
     margin-left: 1vw;
-    margin-top: -1.2%;
+    margin-top: -.8%;
     font-size:x-large;
     
 }
@@ -87,9 +95,11 @@
 }
 
 .checkbox {
-    font-size: x-large;
+    font-size: xx-large;
     display: inline-block;
-    margin-top: -5px;
+    margin-top: -1vh;
+    width: 2vw;
+    height: 1vw;
 }
 
 .large-notice {
@@ -100,16 +110,30 @@
 
 .list-selection {
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 10%;
     transition: background-color 0.3s; 
+    display:flex;
+    font-size: x-large;
+    height: 5vh;
+   
+}
+
+.list-label {
+    margin-left: 0%;
+    margin-top: 2%;
+    font-size: xx-large;
 }
 
 .list-selection-active {
     background-color: #c0c0c0;
-    padding: 20px;
+    padding: 10%;
     transition: background-color 0.3s; 
+    display: flex;
+    font-size: x-large;
+    height: 5vh;
 }
 
 .list-selection:hover {
     background-color: #c0c0c0;
 }
+

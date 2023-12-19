@@ -117,7 +117,7 @@ function Entry({
               {edit ? "OK" : "Edit"}
             </button>
             <button className="list-entry-button" onClick={() => deleteEntry()}>
-              Delete
+            ❌
             </button>
           </div>
         </>

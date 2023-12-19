@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { setActiveListId, setData, setNewEntryTargetListId } from "../app/listSlice";
+import { setActiveListId, setData, setUserLists, setNewEntryTargetListId } from "../app/listSlice";
 
 function ListLabel({ list_id }) {
     const [isDeleting, setIsDeleting] = useState(false);
@@ -47,10 +46,10 @@ function ListLabel({ list_id }) {
             .catch((error) => console.error(error));
         dispatch(setData(null));
         dispatch(setActiveListId(list_id));
-        dispatch(setNewEntryTargetListId(list_id));
+        dispatch(setNewEntryTargetListId(list_id))
         updateListSlice();
     };
-  
+
     const handleDeleteList = async () => {
         setIsDeleting(true);
 
@@ -78,21 +77,19 @@ function ListLabel({ list_id }) {
     useEffect(() => {
         if (Number.isInteger(currActiveListId)) {
             updateListSlice();
-            updateMyLists();
+            
         }
     }, []);
 
     return (
-        <div className=  {currActiveListId == list_id ? 'list-selection-active' : 'list-selection' } onClick={switchActiveList}>
-            <span>List {list_id}</span>
+        <div className= {currActiveListId == list_id ? 'list-selection-active' : 'list-selection'} onClick={switchActiveList}>
+            <div className="list-label">List {list_id}</div>
 
-            <button onClick={handleDeleteList} disabled={isDeleting}>
-                Delete
+            <button className="delete-list-button" onClick={handleDeleteList} disabled={isDeleting}>
+            ❌
             </button>
         </div>
     );
-
-
 }
 
 export default ListLabel;
