@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveListId, setData } from "../app/listSlice";
+import { setActiveListId, setData, setNewEntryTargetListId } from "../app/listSlice";
 function ListLabel({ list_id }) {
   const currList = useSelector((state) => state.list.data); // returns current list object json
   const currActiveListId = useSelector((state) => state.list.activeListId);
@@ -35,6 +35,7 @@ function ListLabel({ list_id }) {
       .catch((error) => console.error(error));
     dispatch(setData(null)); // needed or else there is this really weird bug
     dispatch(setActiveListId(list_id));
+    dispatch(setNewEntryTargetListId(list_id));
     updateListSlice();
   }
 
@@ -46,7 +47,7 @@ function ListLabel({ list_id }) {
   }, []);
 
   return (
-    <div className="list-selection" onClick={switchActiveList}>
+    <div className=  {currActiveListId == list_id ? 'list-selection-active' : 'list-selection' } onClick={switchActiveList}>
       List {list_id}
     </div>
   );

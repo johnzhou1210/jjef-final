@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import BoredTodo from "./BoredTodo";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewEntryTargetListId } from "../app/listSlice";
 
 function CreateEntry({ updateListSlice }) {
+  const dispatch = useDispatch();
   const [text, setText] = useState("");
   const [priority, setPriority] = useState(0);
-  const [listNum, setListNum] = useState(1);
+  // const [listNum, setListNum] = useState(1);
+
+  const listNum = useSelector((state) => state.list.newEntryTargetListId);
 
   const endpoint = "http://localhost:3001/createEntry";
 
@@ -20,7 +25,8 @@ function CreateEntry({ updateListSlice }) {
   }
 
   function saveListNum(e) {
-    setListNum(e.target.value);
+    // setListNum(e.target.value);
+    dispatch(setNewEntryTargetListId(e.target.value));
   }
 
   async function handleCreateEntry() {
@@ -50,7 +56,8 @@ function CreateEntry({ updateListSlice }) {
   function handleCreateBoredEntry(activity) {
     setText(activity);
     setPriority(Number(priority == null ? 0 : priority));
-    setListNum(Number(listNum === null ? 1 : listNum));
+    // setListNum(Number(listNum === null ? 1 : listNum));
+    dispatch(setNewEntryTargetListId(listNum === null ? 1 : listNum))
   }
 
   useEffect(() => {

@@ -60,8 +60,24 @@
 
 .list-entry .entry-text {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 1vw;
+    margin-top: -1.2%;
     font-size:x-large;
+    
+}
+
+.list-entry-button {
+    display: inline-block;
+    width: 100px;
+    margin-left: .5vw;
+    font-size:x-large;
+}
+
+.entry-buttons {
+    display: flex;
+    width: 10vw;
+    margin-left: 3vw;
+    
     
 }
 
@@ -83,6 +99,12 @@
 
 .list-selection {
     background-color: #f0f0f0;
+    padding: 20px;
+    transition: background-color 0.3s; 
+}
+
+.list-selection-active {
+    background-color: #c0c0c0;
     padding: 20px;
     transition: background-color 0.3s; 
 }
