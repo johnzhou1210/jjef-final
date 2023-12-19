@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BoredTodo from "./BoredTodo";
+import RiddlesTodo from './RiddlesTodo';
 
 function CreateEntry({ updateListSlice }) {
   const [text, setText] = useState("");
@@ -53,9 +54,16 @@ function CreateEntry({ updateListSlice }) {
     setListNum(Number(listNum === null ? 1 : listNum));
   }
 
+  function handleCreateRiddleEntry(riddle) {
+    setText("Riddle: " + riddle.riddle + " Answer: " + riddle.answer);
+    setPriority(Number(priority == null ? 0 : priority));
+    setListNum(Number(listNum === null ? 1 : listNum));
+  }
+
   return (
     <div className="entry-add-input">
       <BoredTodo handleCreateBoredEntry={handleCreateBoredEntry} />
+      <RiddlesTodo handleCreateRiddleEntry={handleCreateRiddleEntry} />
 
       <div className="input-field">
         <input
