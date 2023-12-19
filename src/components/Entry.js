@@ -87,7 +87,7 @@ function Entry({
           >
             {edit ? <input value={entryText} onChange={modifyEntryText}></input>: <p>{entryText}</p>}
           </div>
-          <button onClick={() => editEntry()}>edit</button>
+          <button onClick={() => editEntry()}>{edit ? "complete edit" : "edit"}</button>
         </>
       )}
     </div>
