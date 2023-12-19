@@ -2,31 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../app/listSlice";
 import CreateEntry from "../components/CreateEntry";
+import Entry from "../components/Entry";
 
-function List() {
+function List({updateListSlice}) {
   const dispatch = useDispatch();
   const currList = useSelector((state) => state.list.data); // returns current list object json
-  const currListId = 1; // this is only temporary, replace this once set current get and update current list are implemented in frontend
-
-  async function updateListSlice() {
-    // updates the data in redux by fetching from the database.
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:3001/getList/" + currListId, requestOptions)
-      .then((response) => response.json())
-      .then((resJson) => dispatch(setData(resJson)))
-      .catch((error) => console.log("error", error));
-  }
 
   useEffect(() => {
     updateListSlice();
   }, []);
 
   console.log("currlist:");
-  console.log(currList);
+  console.log(currList?.entries);
 
   return (
     <>
@@ -34,13 +21,20 @@ function List() {
 
       <div className="list-content">
         {currList != null ? (
-          currList.entries.map((elem, indx) => (
-            <div key={indx} className="list-entry">
-              {elem.text}
-            </div>
+          currList.entries.map((elem, key) => (
+            <Entry key={key}
+              completed={elem.completed}
+              text={elem.text}
+              priority={elem.priority}
+              color={elem.color}
+              list_id={elem.list_id}
+              date_created={elem.date_created}
+              entry_id={elem.entry_id}
+              updateListSlice={updateListSlice}
+            />
           ))
         ) : (
-          <div>List is null</div>
+          <div>No lists currently active.</div>
         )}
       </div>
     </>

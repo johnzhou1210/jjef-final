@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BoredTodo from "./BoredTodo";
 import RiddlesTodo from './RiddlesTodo';
 
@@ -8,6 +8,9 @@ function CreateEntry({ updateListSlice }) {
   const [listNum, setListNum] = useState(1);
 
   const endpoint = "http://localhost:3001/createEntry";
+
+
+
 
   function saveText(e) {
     setText(e.target.value);
@@ -20,9 +23,6 @@ function CreateEntry({ updateListSlice }) {
   function saveListNum(e) {
     setListNum(e.target.value);
   }
-
-  console.log("here is the type");
-  console.log(typeof updateListSlice);
 
   async function handleCreateEntry() {
     if (text.trim() === "") {
@@ -59,6 +59,10 @@ function CreateEntry({ updateListSlice }) {
     setPriority(Number(priority == null ? 0 : priority));
     setListNum(Number(listNum === null ? 1 : listNum));
   }
+  useEffect(() => {
+    updateListSlice();
+    
+  }, []);
 
   return (
     <div className="entry-add-input">
