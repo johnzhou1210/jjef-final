@@ -76,7 +76,7 @@ function List() {
             <label htmlFor="filterListId">Filter by List ID: </label>
             <input
                 type="number"
-                placeholder="Enter List ID (Enter 0 for all)"
+                placeholder="Enter List ID"
                 value={filteredListId || ""}
                 onChange={(e) => setFilteredListId(e.target.value)}
             />
