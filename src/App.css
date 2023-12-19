@@ -9,6 +9,7 @@
     background-color: #eee;
     padding: 20px;
     display: inline-block;
+    overflow-y: scroll;
 }
 
 .sidebar-button-large {
