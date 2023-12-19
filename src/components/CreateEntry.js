@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BoredTodo from "./BoredTodo";
 
 function CreateEntry({ updateListSlice }) {
   const [text, setText] = useState("");
@@ -36,7 +37,7 @@ function CreateEntry({ updateListSlice }) {
       body: JSON.stringify({
         text: text,
         priority: Number(priority == null ? 0 : priority),
-        list_id: Number(listNum == null ? 0 : listNum),
+        list_id: Number(listNum == null ? 1 : listNum),
       }),
     })
       .then((response) => console.log(response.status))
@@ -46,8 +47,16 @@ function CreateEntry({ updateListSlice }) {
     updateListSlice();
   }
 
+  function handleCreateBoredEntry(activity) {
+    setText(activity);
+    setPriority(Number(priority == null ? 0 : priority));
+    setListNum(Number(listNum === null ? 1 : listNum));
+  }
+
   return (
     <div className="entry-add-input">
+      <BoredTodo handleCreateBoredEntry={handleCreateBoredEntry} />
+
       <div className="input-field">
         <input
           className="entry-taskname-input"
