@@ -13,7 +13,7 @@ function List({updateListSlice}) {
   }, []);
 
   console.log("currlist:");
-  console.log(currList);
+  console.log(currList?.entries);
 
   return (
     <>
@@ -30,6 +30,7 @@ function List({updateListSlice}) {
               list_id={elem.list_id}
               date_created={elem.date_created}
               entry_id={elem.entry_id}
+              updateListSlice={updateListSlice}
             />
           ))
         ) : (

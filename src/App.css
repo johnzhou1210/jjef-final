@@ -11,6 +11,12 @@
     display: inline-block;
 }
 
+.sidebar-button-large {
+    width: 10vw;
+    height: 10vh;
+    font-size: xx-large;
+}
+
 .main-content {
     padding: 25px;
 }
@@ -73,4 +79,14 @@
     padding: 2%;
     font-size: xx-large;
     width: 80vw;
+}
+
+.list-selection {
+    background-color: #f0f0f0;
+    padding: 20px;
+    transition: background-color 0.3s; 
+}
+
+.list-selection:hover {
+    background-color: #c0c0c0;
 }

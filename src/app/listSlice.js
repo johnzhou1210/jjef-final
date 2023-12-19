@@ -4,6 +4,8 @@ export const listSlice = createSlice({
   name: "list",
   initialState: {
     data: null,
+    userLists: [],
+    activeListId: 'no current list',
   },
   reducers: {
     setData: (state, action) => {
@@ -29,10 +31,20 @@ export const listSlice = createSlice({
 }
       */
       state.data = action.payload; // payload expects a json with the list of listId
-      console.log(action.payload);
+      // console.log(action.payload);
     },
+
+    setUserLists: (state, action) => {
+      state.userLists = action.payload; // payload expects an array of list ids.
+    },
+
+    setActiveListId: (state, action) => { // payload expects an integer for the id
+      state.activeListId = action.payload;
+      console.log("active list id set to "+ action.payload)
+    }
+
   },
 });
 
-export const { setData } = listSlice.actions;
+export const { setData, setUserLists, setActiveListId } = listSlice.actions;
 export default listSlice.reducer;
