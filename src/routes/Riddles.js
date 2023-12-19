@@ -30,10 +30,10 @@ function showAnswerNow() {
 
 return (
     <>
-        <p>Want to solve a riddle</p>
+        <p>Want to solve a riddle?</p>
         <button onClick={() => getRiddle()}>Get Riddle</button>
-        {riddleData ? riddle : "No riddle yet"}
-        {riddleData ? <button onClick={() => showAnswerNow()}>show answer</button> : "No answer yet"}
+        {riddleData ? riddle : ""}
+        {riddleData ? <button onClick={() => showAnswerNow()}>{shownAnswer? "Hide answer" : "Show answer"}</button> : ""}
         {riddleData && shownAnswer ? riddleAnswer : ""}
     </>
 );
