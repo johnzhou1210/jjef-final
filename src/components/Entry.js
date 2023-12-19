@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Entry({
   completed,
@@ -8,6 +8,7 @@ function Entry({
   list_id,
   date_created,
   entry_id,
+  updateListSlice,
 }) {
   const [entryCompleted, setEntryCompleted] = useState(completed);
   const [entryText, setEntryText] = useState(text);
@@ -34,6 +35,12 @@ function Entry({
     updateEntryComplete();
   }
 
+  useEffect(() => {
+    if (Number.isInteger(list_id)) {
+      updateListSlice();
+    }
+  }, []);
+
   return (
     <div className="list-entry">
       {currentEntryId === null ||
@@ -45,7 +52,11 @@ function Entry({
           <button onClick={() => checkCompletedEntry()}>
             <div className="checkbox">{!entryCompleted ? "☐" : "☑"}</div>
           </button>
-          <div className={entryCompleted ? "strikethrough entry-text" : "entry-text"}>
+          <div
+            className={
+              entryCompleted ? "strikethrough entry-text" : "entry-text"
+            }
+          >
             {entryText}
           </div>
         </>
