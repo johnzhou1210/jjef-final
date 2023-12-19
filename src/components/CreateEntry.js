@@ -3,8 +3,8 @@ import BoredTodo from "./BoredTodo";
 
 function CreateEntry({ updateListSlice }) {
   const [text, setText] = useState("");
-  const [priority, setPriority] = useState(null);
-  const [listNum, setListNum] = useState(null);
+  const [priority, setPriority] = useState(0);
+  const [listNum, setListNum] = useState(0);
 
   const endpoint = "http://localhost:3001/createEntry";
 
@@ -36,8 +36,8 @@ function CreateEntry({ updateListSlice }) {
       },
       body: JSON.stringify({
         text: text,
-        priority: Number(priority == null ? 0 : priority),
-        list_id: Number(listNum == null ? 1 : listNum),
+        priority: Number(priority),
+        list_id: Number(listNum),
       }),
     })
       .then((response) => console.log(response.status))
@@ -66,7 +66,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={saveText}
         ></input>
       </div>
-
+      <label className="input-label">Set task priority</label>
       <div className="input-field">
         <input
           className="entry-priority-input"
@@ -76,7 +76,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={savePriority}
         ></input>
       </div>
-
+      <label className="input-label">Add to which list?</label>
       <div className="input-field">
         <input
           className="entry-listid-input"
