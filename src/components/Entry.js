@@ -13,6 +13,8 @@ function Entry({
   const [entryCompleted, setEntryCompleted] = useState(completed);
   const [entryText, setEntryText] = useState(text);
   const [currentEntryId, setCurrentEntryId] = useState(entry_id);
+  const [edit, setEdit] = useState(false);
+  const [prevEntry, setPrevEntry] = useState("");
 
   const update_endpoint = "http://localhost:3001/updateEntry/";
 
@@ -33,6 +35,32 @@ function Entry({
 
   function checkCompletedEntry() {
     updateEntryComplete();
+  }
+
+  function updateEntryText() {
+    fetch(update_endpoint + currentEntryId, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: entryText,
+      }),
+    })
+      .then((response) => console.log("Edited entry: " + response.status))
+      .catch((error) => console.error(error));
+  }
+
+  function modifyEntryText(e) {
+    setEntryText(e.target.value);
+  }
+
+  function editEntry() {
+    setPrevEntry(entryText);
+    setEdit(!edit);
+    if (entryText.trim() !== prevEntry.trim()) {
+      updateEntryText();
+    }
   }
 
   useEffect(() => {
@@ -57,8 +85,9 @@ function Entry({
               entryCompleted ? "strikethrough entry-text" : "entry-text"
             }
           >
-            {entryText}
+            {edit ? <input value={entryText} onChange={modifyEntryText}></input>: <p>{entryText}</p>}
           </div>
+          <button onClick={() => editEntry()}>edit</button>
         </>
       )}
     </div>
