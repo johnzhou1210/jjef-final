@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Entry({ completed, text, priority, color, list_id, entry_id }) { // date_created
+function Entry({ completed, text, priority, color, list_id, date_created, entry_id }) {
     const [entryCompleted, setEntryCompleted] = useState(completed);
     const [entryText, setEntryText] = useState(text);
     const [currentEntryId, setCurrentEntryId] = useState(entry_id);
@@ -14,7 +14,7 @@ function Entry({ completed, text, priority, color, list_id, entry_id }) { // dat
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              completed: entryCompleted
+              completed: entryCompleted,
             }),
           })
             .then((response) => console.log("Edited entry: " + response.status))
@@ -31,7 +31,7 @@ function Entry({ completed, text, priority, color, list_id, entry_id }) { // dat
             {currentEntryId === null || entryCompleted === null || entryText === null ? "Loading..." : 
                 <>
                     <button onClick={() => checkCompletedEntry()}>{!entryCompleted ? "o" : "x"}</button>
-                    <p>{text}</p>
+                    <p>{entryText}</p>
                 </>
             }
         </>
