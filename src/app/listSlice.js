@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 export const listSlice = createSlice({
   name: "list",
@@ -6,6 +7,7 @@ export const listSlice = createSlice({
     data: null,
     userLists: [],
     activeListId: 'no current list',
+    newEntryTargetListId: 1,
   },
   reducers: {
     setData: (state, action) => {
@@ -40,11 +42,16 @@ export const listSlice = createSlice({
 
     setActiveListId: (state, action) => { // payload expects an integer for the id
       state.activeListId = action.payload;
+      state.newEntryTargetListId = state.activeListId;
       console.log("active list id set to "+ action.payload)
+    },
+
+    setNewEntryTargetListId: (state, action) => { // payload expects an integer for the id
+      state.newEntryTargetListId = action.payload
     }
 
   },
 });
 
-export const { setData, setUserLists, setActiveListId } = listSlice.actions;
+export const { setData, setUserLists, setActiveListId, setNewEntryTargetListId } = listSlice.actions;
 export default listSlice.reducer;
