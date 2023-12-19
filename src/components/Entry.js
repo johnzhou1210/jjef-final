@@ -27,11 +27,11 @@ function Entry({
       }),
     })
       .then((response) => console.log("Edited entry: " + response.status))
+      .then(setEntryCompleted(!entryCompleted))
       .catch((error) => console.error(error));
   }
 
   function checkCompletedEntry() {
-    setEntryCompleted(!entryCompleted);
     updateEntryComplete();
   }
 
