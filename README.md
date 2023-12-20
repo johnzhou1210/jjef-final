@@ -27,7 +27,7 @@ UI (React)
 
   > ErrorPage: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/routes/ErrorPage.js#L3-L17
 
-  > List: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/routes/List.js#L7C13-L43
+  > List: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/routes/List.js#L7-L43
 
   > Riddles: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/routes/Riddles.js#L5-L72
 
@@ -78,11 +78,11 @@ Client-Side Routing (React Router)
 State Management (Redux)
   1. Create a store and a reducer to handle incoming actions
 
-  > store.js:https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/app/store.js#L1-L8
+  > store.js: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/app/store.js#L1-L8
 
   2. Create 1 or more action creators to create actions based on inputs
   
-  > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/app/listSlice.js#L13-L63
+  > listSlice.js: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/app/listSlice.js#L13-L63
 
   3. Update store state using dispatch and actions
 
@@ -90,11 +90,11 @@ State Management (Redux)
 
   > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/CreateEntry.js#L61
 
-  > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/CreateEntry.js#L69C4-L69C4
+  > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/CreateEntry.js#L69-L69
 
   > ListLabel: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/ListLabel.js#L25
 
-  > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/ListLabel.js#L38C2-L38C2
+  > https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/ListLabel.js#L38-L38
 
 
   4. Reflect updates to the state in the frontend UI
