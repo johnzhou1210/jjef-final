@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../app/listSlice";
 import CreateEntry from "../components/CreateEntry";
 import Entry from "../components/Entry";
-import Riddles from "./Riddles";
 
 function List({ updateListSlice }) {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ function List({ updateListSlice }) {
   return (
     <>
       <CreateEntry updateListSlice={updateListSlice} />
-      <Riddles  />
 
       <div className="list-content">
         {currList != null ? (
