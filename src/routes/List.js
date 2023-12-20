@@ -14,12 +14,12 @@ function List({ updateListSlice }) {
   // }, []);
 
   console.log("currlist:");
-  console.log(currList); // why does this hold the most recently created list?
+  console.log(currList);
 
   return (
     <>
       <CreateEntry updateListSlice={updateListSlice} />
-      <Riddles />
+      <Riddles  />
 
       <div className="list-content">
         {currList != null ? (

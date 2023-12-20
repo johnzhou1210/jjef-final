@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BoredTodo from "./BoredTodo";
 import RiddlesTodo from './RiddlesTodo';
 import { useDispatch, useSelector } from "react-redux";
-import { setNewEntryTargetListId } from "../app/listSlice";
+import { setNewEntryTargetListId, setData } from "../app/listSlice";
 
 function CreateEntry({ updateListSlice }) {
   const dispatch = useDispatch();
@@ -51,19 +51,19 @@ function CreateEntry({ updateListSlice }) {
       .then((response) => console.log(response.status))
       .then(setText(""))
       .catch((error) => console.error(error));
-
     updateListSlice();
   }
 
   function handleCreateBoredEntry(activity) {
-    setText(activity);
+    setText(activity ? activity : activity);
     setPriority(Number(priority == null ? 0 : priority));
     // setListNum(Number(listNum === null ? 1 : listNum));
     dispatch(setNewEntryTargetListId(listNum === null ? 1 : listNum))
   }
 
   function handleCreateRiddleEntry(riddle) {
-    setText("Riddle: " + riddle.riddle + " Answer: " + riddle.answer);
+    console.log("riddle :"+riddle)
+    setText(riddle);
     setPriority(Number(priority == null ? 0 : priority));
     // setListNum(Number(listNum === null ? 1 : listNum));
     dispatch(setNewEntryTargetListId(listNum === null ? 1 : listNum))
@@ -104,6 +104,7 @@ function CreateEntry({ updateListSlice }) {
           type="number"
           value={listNum}
           onChange={saveListNum}
+          maxLength={100}
         ></input>
       </div>
       <button className="interactable" onClick={handleCreateEntry}>Create!</button>
