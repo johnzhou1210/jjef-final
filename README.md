@@ -1,3 +1,18 @@
+Instructions on setting up the Todo List app:
+
+1. In an empty folder, clone the following repositories
+2. Frontend: git clone https://github.com/johnzhou1210/jjef-final-frontend.git
+3. Backend: git clone https://github.com/johnzhou1210/jjef-final-backend.git
+4. Make sure your postgres server is running
+5. Set up postgres database, create a database named 'todoList' (in pgAdmin for example, and port 5432 is default)
+6. In configdb.js in backend, add your password to variable dbPass to access the database
+7. Do npm install for both frontend and backend
+8. node index.js for backend, port 3001 should have no programs running on it beforehand
+9. In your browser or in Postman (GET), please do 'http://localhost:3001/dbSync' to sync the database
+10. npm start for frontend, port 3000, should have no programs running on it beforehand
+11. Now you can test the app
+
+
 Frontend Requirements
 UI (React)
   1. Create a topbar or sidebar component that is present throughout the app
