@@ -12,7 +12,7 @@ function BoredTodo({ handleCreateBoredEntry }) {
 
     return (
         <>
-            <button onClick={() => handleGetBoredActivity()}>
+            <button className="interactable" onClick={() => handleGetBoredActivity()}>
                 Add a random activity to your list
             </button>
         </>

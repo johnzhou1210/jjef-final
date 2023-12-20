@@ -6,7 +6,7 @@ export const listSlice = createSlice({
   initialState: {
     data: null,
     userLists: [],
-    activeListId: 'no current list',
+    activeListId: "no current list",
     newEntryTargetListId: 1,
   },
   reducers: {
@@ -32,7 +32,16 @@ export const listSlice = createSlice({
 ]
 }
       */
-      state.data = action.payload; // payload expects a json with the list of listId
+      if (
+       ( action.payload != null &&
+        action.payload.list_id === state.activeListId) || action.payload == null
+      ) {
+        // prevents any mismatch between active list id and data shown
+        state.data = action.payload; // payload expects a json with the list of listId
+        // console.log("active list id set to :");
+        // console.log(state.data);
+      }
+
       // console.log(action.payload);
     },
 
@@ -40,18 +49,24 @@ export const listSlice = createSlice({
       state.userLists = action.payload; // payload expects an array of list ids.
     },
 
-    setActiveListId: (state, action) => { // payload expects an integer for the id
+    setActiveListId: (state, action) => {
+      // payload expects an integer for the id
       state.activeListId = action.payload;
       state.newEntryTargetListId = state.activeListId;
-      console.log("active list id set to "+ action.payload)
+      console.log("active list id set to " + action.payload);
     },
 
-    setNewEntryTargetListId: (state, action) => { // payload expects an integer for the id
-      state.newEntryTargetListId = action.payload
-    }
-
+    setNewEntryTargetListId: (state, action) => {
+      // payload expects an integer for the id
+      state.newEntryTargetListId = action.payload;
+    },
   },
 });
 
-export const { setData, setUserLists, setActiveListId, setNewEntryTargetListId } = listSlice.actions;
+export const {
+  setData,
+  setUserLists,
+  setActiveListId,
+  setNewEntryTargetListId,
+} = listSlice.actions;
 export default listSlice.reducer;

@@ -8,8 +8,9 @@
     height: 100vh;
     background-color: #eee;
     padding: 20px;
-    display: inline-block;
+    float: left;
     overflow-y: scroll;
+    
 }
 
 .sidebar-button-large {
@@ -19,8 +20,8 @@
 }
 
 .delete-list-button {
-    position: absolute;
     margin-left: 6vw;
+    margin-bottom: -50%;
     font-size: large;
     width: 2vw;
     height: 5vh;
@@ -50,6 +51,7 @@
 .input-label {
     font-size: large;
     margin-top: 5px;
+    
 }
 
 .list-content {
@@ -102,6 +104,10 @@
     height: 1vw;
 }
 
+.interactable:hover {
+    cursor: pointer;
+}
+
 .large-notice {
     padding: 2%;
     font-size: xx-large;
@@ -110,30 +116,33 @@
 
 .list-selection {
     background-color: #f0f0f0;
-    padding: 10%;
+    
     transition: background-color 0.3s; 
-    display:flex;
+    padding:10%;
     font-size: x-large;
-    height: 5vh;
+    height: 2%;
    
 }
 
 .list-label {
     margin-left: 0%;
-    margin-top: 2%;
+    margin-top: -3.5vh;
     font-size: xx-large;
+    
+}
+
+.list-label:hover {
+    background-color: yellow;
+    color: black;
 }
 
 .list-selection-active {
     background-color: #c0c0c0;
-    padding: 10%;
+    
     transition: background-color 0.3s; 
-    display: flex;
+    padding:10%;
     font-size: x-large;
-    height: 5vh;
+    height: 2%;
 }
 
-.list-selection:hover {
-    background-color: #c0c0c0;
-}
 

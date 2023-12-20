@@ -10,6 +10,12 @@ function App() {
   const currActiveListId = useSelector((state) => state.list.activeListId);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    updateMyLists();
+    updateActiveListId();
+    
+  }, []);
+
   async function updateListSlice() {
     // updates the data in redux by fetching from the database.
     var requestOptions = {
@@ -49,12 +55,8 @@ function App() {
       .catch((error) => console.log("error", error));
   }
 
-  useEffect(() => {
-    updateMyLists();
-    updateActiveListId();
-    
-  }, []);
-
+  
+  console.log(currActiveListId);
 
   return (
     <div className="App">

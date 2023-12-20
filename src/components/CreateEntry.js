@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BoredTodo from "./BoredTodo";
+import RiddlesTodo from './RiddlesTodo';
 import { useDispatch, useSelector } from "react-redux";
 import { setNewEntryTargetListId } from "../app/listSlice";
 
@@ -61,6 +62,12 @@ function CreateEntry({ updateListSlice }) {
     dispatch(setNewEntryTargetListId(listNum === null ? 1 : listNum))
   }
 
+  function handleCreateRiddleEntry(riddle) {
+    setText("Riddle: " + riddle.riddle + " Answer: " + riddle.answer);
+    setPriority(Number(priority == null ? 0 : priority));
+    // setListNum(Number(listNum === null ? 1 : listNum));
+    dispatch(setNewEntryTargetListId(listNum === null ? 1 : listNum))
+  }
   useEffect(() => {
     updateListSlice();
   }, []);
@@ -68,6 +75,7 @@ function CreateEntry({ updateListSlice }) {
   return (
     <div className="entry-add-input">
       <BoredTodo handleCreateBoredEntry={handleCreateBoredEntry} />
+      <RiddlesTodo handleCreateRiddleEntry={handleCreateRiddleEntry} />
 
       <div className="input-field">
         <input
@@ -78,7 +86,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={saveText}
         ></input>
       </div>
-      <label className="input-label">Set task priority</label>
+      {/* <label className="input-label">Set task priority</label>
       <div className="input-field">
         <input
           className="entry-priority-input"
@@ -87,7 +95,7 @@ function CreateEntry({ updateListSlice }) {
           value={priority}
           onChange={savePriority}
         ></input>
-      </div>
+      </div> */}
       <label className="input-label">Add to which list?</label>
       <div className="input-field">
         <input
@@ -98,7 +106,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={saveListNum}
         ></input>
       </div>
-      <button onClick={handleCreateEntry}>Create!</button>
+      <button className="interactable" onClick={handleCreateEntry}>Create!</button>
     </div>
   );
 }
