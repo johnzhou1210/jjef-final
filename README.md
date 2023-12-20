@@ -73,7 +73,7 @@ Client-Side Routing (React Router)
   2. Use dynamic segments to display appropriate info based on the segment info
       Ex: Appropriate task is displayed when the URL matches `/tasks/:taskId`
 
-  > DisplayLists.js: https://github.com/johnzhou1210/jjef-final-frontend/blob/af40ddc6325e4da069ac92f0f91743e735c15d81/src/components/DisplayLists.js#L23-L27
+  > For dynamic segments, we didn't fulfill this requirement (clicking on the lists created in the sidebar doesn't show lists based on their id in the URL).
   
 State Management (Redux)
   1. Create a store and a reducer to handle incoming actions
