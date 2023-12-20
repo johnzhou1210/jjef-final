@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../app/listSlice";
 import CreateEntry from "../components/CreateEntry";
 import Entry from "../components/Entry";
-import Riddles from "./Riddles";
 
 function List({ updateListSlice }) {
   const dispatch = useDispatch();
@@ -14,12 +13,11 @@ function List({ updateListSlice }) {
   // }, []);
 
   console.log("currlist:");
-  console.log(currList); // why does this hold the most recently created list?
+  console.log(currList);
 
   return (
     <>
       <CreateEntry updateListSlice={updateListSlice} />
-      <Riddles />
 
       <div className="list-content">
         {currList != null ? (
