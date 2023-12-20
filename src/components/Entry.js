@@ -93,7 +93,7 @@ function Entry({
       ) : (
         <>
           <button onClick={() => checkCompletedEntry()}>
-            <div className="checkbox">{!entryCompleted ? "☐" : "☑"}</div>
+            <div className="checkbox interactable">{!entryCompleted ? "☐" : "☑"}</div>
           </button>
           <div
             className={
@@ -113,10 +113,10 @@ function Entry({
             )}
           </div>
           <div className="entry-buttons">
-            <button className="list-entry-button" onClick={() => editEntry()}>
+            <button className="list-entry-button interactable" onClick={() => editEntry()}>
               {edit ? "OK" : "Edit"}
             </button>
-            <button className="list-entry-button" onClick={() => deleteEntry()}>
+            <button className="list-entry-button interactable" onClick={() => deleteEntry()}>
             ❌
             </button>
           </div>

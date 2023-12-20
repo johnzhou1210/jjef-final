@@ -11,7 +11,7 @@ function RiddlesTodo ({handleCreateRiddleEntry}) {
 
     return (
         <>
-            <button onClick={() => handleGetRiddle()}>
+            <button className="interactable" onClick={() => handleGetRiddle()}>
                 Add a riddle to solve 
             </button>
         </>

@@ -5,16 +5,16 @@ import CreateEntry from "../components/CreateEntry";
 import Entry from "../components/Entry";
 import Riddles from "./Riddles";
 
-function List({updateListSlice}) {
+function List({ updateListSlice }) {
   const dispatch = useDispatch();
   const currList = useSelector((state) => state.list.data); // returns current list object json
 
-  useEffect(() => {
-    updateListSlice();
-  }, []);
+  // useEffect(() => {
+  //   updateListSlice();
+  // }, []);
 
   console.log("currlist:");
-  console.log(currList?.entries);
+  console.log(currList); // why does this hold the most recently created list?
 
   return (
     <>
@@ -24,7 +24,8 @@ function List({updateListSlice}) {
       <div className="list-content">
         {currList != null ? (
           currList.entries.map((elem, key) => (
-            <Entry key={key}
+            <Entry
+              key={key}
               completed={elem.completed}
               text={elem.text}
               priority={elem.priority}

@@ -86,7 +86,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={saveText}
         ></input>
       </div>
-      <label className="input-label">Set task priority</label>
+      {/* <label className="input-label">Set task priority</label>
       <div className="input-field">
         <input
           className="entry-priority-input"
@@ -95,7 +95,7 @@ function CreateEntry({ updateListSlice }) {
           value={priority}
           onChange={savePriority}
         ></input>
-      </div>
+      </div> */}
       <label className="input-label">Add to which list?</label>
       <div className="input-field">
         <input
@@ -106,7 +106,7 @@ function CreateEntry({ updateListSlice }) {
           onChange={saveListNum}
         ></input>
       </div>
-      <button onClick={handleCreateEntry}>Create!</button>
+      <button className="interactable" onClick={handleCreateEntry}>Create!</button>
     </div>
   );
 }
