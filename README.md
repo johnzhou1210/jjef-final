@@ -1,3 +1,5 @@
+https://github.com/johnzhou1210/jjef-final-backend
+
 Instructions on setting up the Todo List app:
 
 1. In an empty folder, clone the following repositories
